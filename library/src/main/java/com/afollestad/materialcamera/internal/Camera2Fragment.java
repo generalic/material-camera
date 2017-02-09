@@ -605,14 +605,10 @@ public class Camera2Fragment extends BaseCameraFragment implements View.OnClickL
                                 mOutputUri = Uri.fromFile(outputPic).toString();
 
                                 // end activity and set image as the result of it
-
                                 Intent intent = new Intent();
                                 intent.putExtra("snapshot.url", mOutputUri);
                                 activity.setResult(RESULT_OK, intent);
                                 activity.finish();
-
-                                
-//                                mInterface.onShowStillshot(mOutputUri);
                             }
                         }, mBackgroundHandler);
             } else {
