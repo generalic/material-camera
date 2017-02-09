@@ -22,7 +22,7 @@ public final class PreferenceUtil {
 
     public static void storeTime(Context context, String type) {
         final SharedPreferences.Editor editor = getPrefs(context).edit();
-        editor.putLong(type, System.currentTimeMillis());
+        editor.putLong(type, System.nanoTime());
         editor.apply();
     }
 
