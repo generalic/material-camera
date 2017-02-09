@@ -46,6 +46,7 @@ import android.widget.Toast;
 import com.afollestad.materialcamera.R;
 import com.afollestad.materialcamera.util.CameraUtil;
 import com.afollestad.materialcamera.util.Degrees;
+import com.afollestad.materialcamera.util.PreferenceUtil;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 
@@ -604,6 +605,14 @@ public class Camera2Fragment extends BaseCameraFragment implements View.OnClickL
                                 Log.d("stillshot", "picture saved to disk - jpeg, size: " + bytes.length);
                                 mOutputUri = Uri.fromFile(outputPic).toString();
                                 mInterface.onShowStillshot(mOutputUri);
+
+                                PreferenceUtil.storeTime(
+                                        getActivity(),
+                                        PreferenceUtil.PREF_END_TIME
+                                );
+
+                                logTime();
+
                                 // end activity and set image as the result of it
 //                                Intent intent = new Intent();
 //                                intent.putExtra("snapshot.url", mOutputUri);
@@ -653,6 +662,14 @@ public class Camera2Fragment extends BaseCameraFragment implements View.OnClickL
         } catch (InterruptedException e) {
             throwError(new Exception("Interrupted while trying to lock camera opening.", e));
         }
+    }
+
+    private void logTime() {
+        long start = PreferenceUtil.getTime(this, PreferenceUtil.PREF_START_TIME);
+        long end = PreferenceUtil.getTime(this, PreferenceUtil.PREF_END_TIME);
+
+        long time = end - start;
+        Log.d("MainActivity", String.valueOf(time));
     }
 
     @Override
