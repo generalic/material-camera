@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.graphics.ImageFormat;
@@ -601,7 +602,15 @@ public class Camera2Fragment extends BaseCameraFragment implements View.OnClickL
                                 }
                                 Log.d("stillshot", "picture saved to disk - jpeg, size: " + bytes.length);
                                 mOutputUri = Uri.fromFile(outputPic).toString();
-                                mInterface.onShowStillshot(mOutputUri);
+
+                                // end activity and set image as the result of it
+
+                                Intent intent = new Intent();
+                                intent.putExtra("snapshot.url", mOutputUri);
+                                activity.setResult(6969, intent);
+                                activity.finish();
+
+//                                mInterface.onShowStillshot(mOutputUri);
                             }
                         }, mBackgroundHandler);
             } else {
