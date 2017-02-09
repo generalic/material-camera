@@ -665,8 +665,8 @@ public class Camera2Fragment extends BaseCameraFragment implements View.OnClickL
     }
 
     private void logTime() {
-        long start = PreferenceUtil.getTime(this, PreferenceUtil.PREF_START_TIME);
-        long end = PreferenceUtil.getTime(this, PreferenceUtil.PREF_END_TIME);
+        long start = PreferenceUtil.getTime(getActivity(), PreferenceUtil.PREF_START_TIME);
+        long end = PreferenceUtil.getTime(getActivity(), PreferenceUtil.PREF_END_TIME);
 
         long time = end - start;
         Log.d("MainActivity", String.valueOf(time));
