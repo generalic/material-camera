@@ -611,6 +611,7 @@ public class Camera2Fragment extends BaseCameraFragment implements View.OnClickL
                                 activity.setResult(RESULT_OK, intent);
                                 activity.finish();
 
+                                
 //                                mInterface.onShowStillshot(mOutputUri);
                             }
                         }, mBackgroundHandler);
