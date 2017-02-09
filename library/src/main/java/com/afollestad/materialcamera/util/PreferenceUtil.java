@@ -20,9 +20,9 @@ public final class PreferenceUtil {
         return context.getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
     }
 
-    public static void storeTime(Context context, String type, long nanos) {
+    public static void storeTime(Context context, String type) {
         final SharedPreferences.Editor editor = getPrefs(context).edit();
-        editor.putLong(type, nanos);
+        editor.putLong(type, System.currentTimeMillis());
         editor.apply();
     }
 

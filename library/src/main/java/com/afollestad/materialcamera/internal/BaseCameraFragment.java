@@ -417,8 +417,7 @@ abstract class BaseCameraFragment extends Fragment implements CameraUriInterface
             takeStillshot();
             PreferenceUtil.storeTime(
                     getActivity(),
-                    PreferenceUtil.PREF_START_TIME,
-                    System.nanoTime()
+                    PreferenceUtil.PREF_START_TIME
             );
         } else if (id == R.id.flash) {
             invalidateFlash(true);
