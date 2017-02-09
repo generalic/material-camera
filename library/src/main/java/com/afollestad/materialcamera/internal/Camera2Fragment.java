@@ -61,6 +61,7 @@ import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
+import static android.app.Activity.RESULT_OK;
 import static com.afollestad.materialcamera.internal.BaseCaptureActivity.CAMERA_POSITION_BACK;
 import static com.afollestad.materialcamera.internal.BaseCaptureActivity.CAMERA_POSITION_FRONT;
 import static com.afollestad.materialcamera.internal.BaseCaptureActivity.CAMERA_POSITION_UNKNOWN;
@@ -607,7 +608,7 @@ public class Camera2Fragment extends BaseCameraFragment implements View.OnClickL
 
                                 Intent intent = new Intent();
                                 intent.putExtra("snapshot.url", mOutputUri);
-                                activity.setResult(6969, intent);
+                                activity.setResult(RESULT_OK, intent);
                                 activity.finish();
 
 //                                mInterface.onShowStillshot(mOutputUri);
