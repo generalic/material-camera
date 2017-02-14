@@ -572,6 +572,11 @@ public class Camera2Fragment extends BaseCameraFragment implements View.OnClickL
                         maxPreviewHeight, largest);
 
                 mImageReader = ImageReader.newInstance(largest.getWidth(), largest.getHeight(), ImageFormat.JPEG, 2);
+
+                final int snapshotWidth = 480;
+                final int snapshotHeight = 320;
+                mImageReader = ImageReader.newInstance(snapshotWidth, snapshotHeight, ImageFormat.JPEG, 2);
+
                 mImageReader.setOnImageAvailableListener(
                         new ImageReader.OnImageAvailableListener() {
                             @Override
