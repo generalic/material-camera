@@ -29,6 +29,7 @@ import com.afollestad.materialcamera.MaterialCamera;
 import com.afollestad.materialcamera.R;
 import com.afollestad.materialcamera.util.CameraUtil;
 import com.afollestad.materialcamera.util.Degrees;
+import com.afollestad.materialcamera.util.MeasurementUtil;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 
@@ -414,6 +415,7 @@ abstract class BaseCameraFragment extends Fragment implements CameraUriInterface
             }
         } else if (id == R.id.stillshot) {
             takeStillshot();
+            Log.d(MeasurementUtil.TAG, MeasurementUtil.TAKE_PICTURE_START);
         } else if (id == R.id.flash) {
             invalidateFlash(true);
         }
