@@ -45,6 +45,8 @@ import android.widget.Toast;
 import com.afollestad.materialcamera.R;
 import com.afollestad.materialcamera.util.CameraUtil;
 import com.afollestad.materialcamera.util.Degrees;
+import com.afollestad.materialcamera.util.Dimension;
+import com.afollestad.materialcamera.util.DimensionConstants;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 
@@ -571,10 +573,10 @@ public class Camera2Fragment extends BaseCameraFragment implements View.OnClickL
                         rotatedPreviewWidth, rotatedPreviewHeight, maxPreviewWidth,
                         maxPreviewHeight, largest);
 
-                mImageReader = ImageReader.newInstance(largest.getWidth(), largest.getHeight(), ImageFormat.JPEG, 2);
+                final Dimension dimension = DimensionConstants.getDimension(largest.getWidth(), largest.getHeight());
+                final int snapshotWidth = dimension.getWidth();
+                final int snapshotHeight = dimension.getHeight();
 
-                final int snapshotWidth = 480;
-                final int snapshotHeight = 320;
                 mImageReader = ImageReader.newInstance(snapshotWidth, snapshotHeight, ImageFormat.JPEG, 2);
 
                 mImageReader.setOnImageAvailableListener(

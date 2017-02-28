@@ -21,6 +21,8 @@ import com.afollestad.materialcamera.ICallback;
 import com.afollestad.materialcamera.R;
 import com.afollestad.materialcamera.util.CameraUtil;
 import com.afollestad.materialcamera.util.Degrees;
+import com.afollestad.materialcamera.util.Dimension;
+import com.afollestad.materialcamera.util.DimensionConstants;
 import com.afollestad.materialcamera.util.ImageUtil;
 import com.afollestad.materialcamera.util.ManufacturerUtil;
 
@@ -233,7 +235,12 @@ public class CameraFragment extends BaseCameraFragment implements View.OnClickLi
             }
 
             Camera.Size mStillShotSize = getHighestSupportedStillShotSize(parameters.getSupportedPictureSizes());
-            parameters.setPictureSize(mStillShotSize.width, mStillShotSize.height);
+
+            final Dimension dimension = DimensionConstants.getDimension(mStillShotSize.width, mStillShotSize.height);
+            final int snapshotWidth = dimension.getWidth();
+            final int snapshotHeight = dimension.getHeight();
+
+            parameters.setPictureSize(snapshotWidth, snapshotHeight);
 
             setCameraDisplayOrientation(parameters);
             mCamera.setParameters(parameters);
