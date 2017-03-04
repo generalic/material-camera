@@ -415,7 +415,7 @@ abstract class BaseCameraFragment extends Fragment implements CameraUriInterface
             }
         } else if (id == R.id.stillshot) {
             takeStillshot();
-            Log.d(MeasurementUtil.TAG, MeasurementUtil.TAKE_PICTURE_START);
+            Log.d(MeasurementUtil.TAG, MeasurementUtil.TAKE_PICTURE_START + " " + MeasurementUtil.getTime());
         } else if (id == R.id.flash) {
             invalidateFlash(true);
         }
