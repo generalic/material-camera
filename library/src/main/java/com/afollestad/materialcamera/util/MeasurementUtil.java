@@ -1,5 +1,6 @@
 package com.afollestad.materialcamera.util;
 
+import android.util.Log;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -20,12 +21,20 @@ public final class MeasurementUtil {
     public static final String COMMAND_REQUEST_END = "command.request.END";
     public static final String CALL_SETUP_START = "call.setup.START";
     public static final String CALL_SETUP_END = "call.setup.END";
+
     private static final SimpleDateFormat FORMATTER = new SimpleDateFormat("HH:mm:ss.SSS");
+    private static final boolean MEASUREMENT_ON = false;
 
     private MeasurementUtil() {
     }
 
     public static String getTime() {
         return FORMATTER.format(new Date());
+    }
+
+    public static void log(String time) {
+        if (MEASUREMENT_ON) {
+            Log.d(MeasurementUtil.TAG, time);
+        }
     }
 }
